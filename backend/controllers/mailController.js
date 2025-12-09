@@ -37,7 +37,7 @@ export const sendMail = async (req, res) => {
       await RefId.create({ "ref_id": req.body.ref_id, "rfs_query": req.body.query_data });
     } catch (error) {
 
-      res.status(400).json({ "message": error.message })
+      return res.status(400).json({ "message": error.message })
 
     }
 
