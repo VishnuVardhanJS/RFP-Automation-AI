@@ -55,12 +55,14 @@ async function processEmails(sequences) {
       const senderEmail = parsed.from.value[0].address
 
       if (senderEmail == null) {
+        console.log("Invalid Sender Email")
         continue;
       }
 
       const rfp_vendor = await Vendor.findOne({ vendor_email: senderEmail });
 
       if (!rfp_vendor) {
+        console.log("Vendor Not found")
         continue
       }
 
